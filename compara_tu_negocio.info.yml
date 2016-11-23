@@ -1,0 +1,5 @@
+name: Compara Tu Negocio
+description: Custom module for compara tu negocio utility migrated from estadisticas.pr
+type: module
+core: 8.x
+package: SDC
