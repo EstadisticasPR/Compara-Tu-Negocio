@@ -1,0 +1,13 @@
+type: module
+name: Migrate Compara Tu Negocio Data
+description: 'Migrates data from CSV stored in filesystem to a custom table in the Compara Tu Negocio Table in the database'
+package: Migrates
+
+dependencies:
+  - drupal:migrate
+  - migrate_plus:migrate_plus
+  - compara_tu_negocio
+
+version: '0.1'
+core: '8.x'
+project: 'compara_tu_negocio'

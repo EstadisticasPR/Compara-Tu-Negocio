@@ -1,0 +1,35 @@
+# Migration configuration for the ComparaTuNegocio data from CSV to Custom DB table
+id: ctn_data
+label: Compara Tu Negocio Data
+
+source: csv
+  - path: '/var/www/drupal/sites/default/Files/compara_tu_negocio/ctn_data.csv'
+  - header_row_count: 1
+  - keys:
+    - naics_code
+
+destination:
+  plugin: table
+  table_name: compara_tu_negocio
+  id_fields:
+    naics_code:
+      type: int
+
+process:
+  naics_code: naics_code
+  code_description: code_description
+
+  num_establishments_2002: num_establishments_2002
+  value_x1000_2002: value_x1000_2002
+  payroll_x1000_2002: payroll_x1000_2002
+  num_employees_2002: num_employees_2002
+
+  num_establishments_2007: num_establishments_2007
+  value_x1000_2007: value_x1000_2007
+  payroll_x1000_2007: payroll_x1000_2007
+  num_employees_2007: num_employees_2007
+
+  num_establishments_2012: num_establishments_2012
+  value_x1000_2012: value_x1000_2012
+  payroll_x1000_2012: payroll_x1000_2012
+  num_employees_2012: num_employees_2012
