@@ -3,7 +3,7 @@ id: ctn_data
 label: Compara Tu Negocio Data
 
 source: csv
-  - path: '/var/www/drupal/sites/default/Files/compara_tu_negocio/ctn_data.csv'
+  - path: '/var/www/drupal/modules/migrate_compara_tu_negocio_data/ComparaTuNegocio_update2012.csv'
   - header_row_count: 1
   - keys:
     - naics_code
