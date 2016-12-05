@@ -4,7 +4,8 @@ function compara_tu_negocio_schema() {
   $schema['compara_tu_negocio'] = array(
     'fields' => array(
       'naics_code'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => TRUE,
       ),
       'code_description'=>array(
@@ -14,53 +15,65 @@ function compara_tu_negocio_schema() {
       ),
        // Economic Census 2002 Columns
       'num_establishments_2002'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
       'value_x1000_2002'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
       'payroll_x1000_2002'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
       'num_employees_2002'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
       // Economic Census 2007 Columns
       'num_establishments_2007'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
       'value_x1000_2007'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
       'payroll_x1000_2007'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
       'num_employees_2007'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
       // Economic Census 2012 Columns
       'num_establishments_2012'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
       'value_x1000_2012'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
       'payroll_x1000_2012'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
       'num_employees_2012'=>array(
-        'type' => 'int',
+        'type' => 'varchar',
+        'length' => 10,
         'not null' => FALSE,
       ),
     ),

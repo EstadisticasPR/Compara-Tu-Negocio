@@ -1,7 +1,7 @@
 compara_tu_negocio.index:
-  path: '/ComparaTuNegocio/'
+  path: '/ComparaTuNegocio'
   defaults:
     _controller: 'Drupal\compara_tu_negocio\Controller\ComparaTuNegocioController::index'
-    _title: 'Compara Tu Negocio'
+    _title: 'Compara tu negocio'
   requirements:
     _permission: 'access content'

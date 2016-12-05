@@ -7,7 +7,7 @@ dependencies:
   - drupal:migrate
   - migrate_plus:migrate_plus
   - compara_tu_negocio
+  - migrate_source_csv
 
 version: '0.1'
 core: '8.x'
-project: 'compara_tu_negocio'

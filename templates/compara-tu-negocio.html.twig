@@ -1,0 +1,207 @@
+<div id="ctn-form">
+	<div>
+		<div class="naics-container">
+
+			<label for="naics-1">Escoja su sector industrial (NAICS):</label>
+			<select id="naics-1" class="form-control">
+			</select>
+
+			<label for="naics-2">Escoja su sub-sector industrial (si aplica):</label>
+			<select id="naics-2" class="form-control">
+				<option value="-1">Sub-sector</option>
+			</select>
+
+			<label for="naics-3">Escoja su industria (si aplica):</label>
+			<select id="naics-3" class="form-control">
+				<option value="-1">Industria</option>
+			</select>
+		</div>
+
+		<div class="company-info">
+
+			<label for="naics-1">Ingrese el monto de su facturación anual:</label>
+			<input id="annual-revenue" class="form-control">
+
+			<label for="naics-1">Ingrese el monto de su nómina anual:</label>
+			<input id="annual-payroll" class="form-control">
+
+			<label for="naics-1">Ingrese el número total de empleados que tiene:</label>
+			<input id="employees" class="form-control">
+
+			<label for="naics-1">Introduzca el número de establecimientos que tiene:</label>
+			<input id="establishments" class="form-control">
+		</div>
+	</div>
+
+	<div id="ctn-image">
+	</div>
+
+</div>
+
+
+
+<div class="table-responsive">
+	<table class="table">
+		<tr>
+			<th>Estadísticas de la industria</th>
+			<th>Mi negocio</th>
+			<th>Promedio de la industria 2002</th>
+			<th>Promedio de la industria 2007</th>
+			<th>Promedio de la industria 2012</th>
+		</tr>
+		<tr id="salesPerEstablishmentsRatio">
+			<td>Facturación por establecimiento</td>
+			<td id="user_ratioSalesPerEstablishment"></td>
+			<td id="ratioSalesPerEstablishment_2002"></td>
+			<td id="ratioSalesPerEstablishment_2007"></td>
+			<td id="ratioSalesPerEstablishment_2012"></td>
+		</tr>
+		<tr id="salesPerEmployee">
+			<td>Facturación por empleado</td>
+			<td id="user_salesPerEmployee"></td>
+			<td id="salesPerEmployee_2002"></td>
+			<td id="salesPerEmployee_2007"></td>
+			<td id="salesPerEmployee_2012"></td>
+		</tr>		
+		<tr id="salesPerDollarOfPayroll">
+			<td>Facturación por valor de la nómina</td>
+			<td id="user_salesPerDollarOfPayroll"></td>
+			<td id="salesPerDollarOfPayroll_2002"></td>
+			<td id="salesPerDollarOfPayroll_2007"></td>
+			<td id="salesPerDollarOfPayroll_2012"></td>
+		</tr>
+		<tr id="annualPayrollPerEmployee">
+			<td>Nómina anual por empleado</td>
+			<td id="user_annualPayrollPerEmployee"></td>
+			<td id="annualPayrollPerEmployee_2002"></td>
+			<td id="annualPayrollPerEmployee_2007"></td>
+			<td id="annualPayrollPerEmployee_2012"></td>
+		</tr>
+		<tr id="employeesPerEstablishment">
+			<td>Empleados por establecimiento</td>
+			<td id="user_employeesPerEstablishment" class="dec"></td>
+			<td id="employeesPerEstablishment_2002" class="dec"></td>
+			<td id="employeesPerEstablishment_2007" class="dec"></td>
+			<td id="employeesPerEstablishment_2012" class="dec"></td>
+		</tr>
+	</table>
+</div>
+
+<script id='ctn_data_json'>
+	var data = {{ ctn_data|json_encode()|raw }}
+
+	window.onload = ( function(){
+		for ( i = 0 ; i < data.length; i++ ){
+			if(data[i]['naics_code'] < 100)
+				jQuery('#naics-1').append( '<option value="' + data[i]['naics_code'] + '">' + data[i]['naics_code'] + ' - '+ data[i]["code_description"] + '</option>' );
+		}
+
+		jQuery('#naics-1').change(function() {
+			document.getElementById('naics-2').options.length = 0;
+			jQuery('#naics-2').append('<option value="-1">Sub-Sector</option>');
+			var parentCode = document.getElementById("naics-1").value;
+			console.log('Parent:' + parentCode);
+			for ( i = 0 ; i < data.length; i++ ){
+				if( parentCode*10 <= data[i]['naics_code'] && data[i]['naics_code'] <= ((parentCode*10)+10) ) {
+					console.log(parentCode*10 + ' <= ' + data[i]['naics_code'] + ' <= ' + ((parentCode*10)+10) );
+					jQuery('#naics-2').append( '<option value="' + data[i]['naics_code'] + '">' + data[i]['naics_code'] + ' - '+ data[i]["code_description"] + '</option>' );		
+				}
+			}	
+		});
+
+		jQuery('#naics-2').change(function() {
+			document.getElementById('naics-3').options.length = 0;
+			jQuery('#naics-3').append('<option value="-1">Industria</option>');
+			var parentCode = document.getElementById("naics-2").value;
+			console.log('Parent:' + parentCode);
+			for ( i = 0 ; i < data.length; i++ ){
+				if( parentCode*10 <= data[i]['naics_code'] && data[i]['naics_code'] <= ((parentCode*10)+10) ) {
+					console.log(parentCode*10 + ' <= ' + data[i]['naics_code'] + ' <= ' + ((parentCode*10)+10) );
+					jQuery('#naics-3').append( '<option value="' + data[i]['naics_code'] + '">' + data[i]['naics_code'] + ' - '+ data[i]["code_description"] + '</option>' );		
+				}
+			}	
+		});
+			jQuery('#annual-revenue').keyup(calculate);
+			jQuery('#annual-payroll').keyup(calculate);
+			jQuery('#employees').keyup(calculate);
+			jQuery('#establishments').keyup(calculate);
+			jQuery('#naics-1').change();
+	});
+
+	var naics;
+	var salesPerEstablishmentsRatio;
+	var salesPerEmployee;
+	var salesPerDollarOfPayroll;
+	var annualPayrollPerEmployee;
+	var employeesPerEstablishment;
+	calculate = function calculate() {
+		var annualRevenue = document.getElementById('annual-revenue').value;
+		var annualPayroll = document.getElementById('annual-payroll').value;
+		var employees = document.getElementById('employees').value;
+		var establishments = document.getElementById('establishments').value;
+		console.log(annualRevenue != '' && annualPayroll != '' && employees != '' && establishments != '');
+		if( annualRevenue != '' && annualPayroll != '' && employees != '' && establishments != '') {
+			naics = getCurrentNaics();
+			for ( i = 0 ; i < data.length; i++ ) {
+				if(data[i]['naics_code'] == naics) {
+					// After getting the selected naics, calculate the metrics for each year of the economic census.
+					getRatioSalesPerEstablishments(data[i], annualRevenue, establishments);
+					salesPerEmployee = getSalesPerEmployee( data[i], annualRevenue, employees);
+					salesPerDollarOfPayroll = getSalesPerDollarOfPayroll( data[i], annualRevenue, annualPayroll);
+					annualPayrollPerEmployee = getAnnualPayrollPerEmployee( data[i], annualPayroll, employees);
+					employeesPerEstablishment = getEmployeesPerEstablishment( data[i], employees, establishments);
+					jQuery('td').not('.dec').each(function () {
+						var htmlString = jQuery(this).html();
+						jQuery(this).html(htmlString.replace(/\.[0-9]+/g, ''));
+					});
+				}
+			}
+		}
+	}
+
+	function getCurrentNaics() {
+		var sector = document.getElementById("naics-1").value;
+		var subSector = document.getElementById("naics-2").value;
+		var industry = document.getElementById("naics-3").value;
+		if(industry == -1) {
+			if( subSector == -1) {
+				return sector;
+			} else return subSector;
+		} else return industry;
+	}
+
+	function getRatioSalesPerEstablishments(naics, annualRevenue, establishments) {
+		jQuery('#user_ratioSalesPerEstablishment').html( (( annualRevenue / establishments)).toLocaleString() );
+		jQuery('#ratioSalesPerEstablishment_2002').html( ( (naics.value_x1000_2002 * 1000.0) / naics.num_establishments_2002).toLocaleString() );
+		jQuery('#ratioSalesPerEstablishment_2007').html( ( (naics.value_x1000_2007 * 1000.0) / naics.num_establishments_2007).toLocaleString() );
+		jQuery('#ratioSalesPerEstablishment_2012').html( ( (naics.value_x1000_2012 * 1000.0) / naics.num_establishments_2012).toLocaleString() );
+	}
+
+	function getSalesPerEmployee(naics, annualRevenue, employees) {
+		jQuery('#user_salesPerEmployee').html( (annualRevenue / employees).toLocaleString() );
+		jQuery('#salesPerEmployee_2002').html( ((naics.value_x1000_2002 * 1000.0) / naics.num_employees_2002).toLocaleString() );
+		jQuery('#salesPerEmployee_2007').html( ((naics.value_x1000_2007 * 1000.0) / naics.num_employees_2007).toLocaleString() );
+		jQuery('#salesPerEmployee_2012').html( ((naics.value_x1000_2012 * 1000.0) / naics.num_employees_2012).toLocaleString() );
+	}
+
+	function getSalesPerDollarOfPayroll(naics, annualRevenue, annualPayroll) {
+		jQuery('#user_salesPerDollarOfPayroll').html( (annualRevenue / annualPayroll).toLocaleString() );
+		jQuery('#salesPerDollarOfPayroll_2002').html( ((naics.value_x1000_2002 * 1000.0) / naics.payroll_x1000_2002).toLocaleString() );
+		jQuery('#salesPerDollarOfPayroll_2007').html( ((naics.value_x1000_2007 * 1000.0) / naics.payroll_x1000_2007).toLocaleString() );
+		jQuery('#salesPerDollarOfPayroll_2012').html( ((naics.value_x1000_2012 * 1000.0) / naics.payroll_x1000_2012).toLocaleString() );
+	}
+
+	function getAnnualPayrollPerEmployee(naics, annualPayroll, employees) {
+		jQuery('#user_annualPayrollPerEmployee').html( (annualPayroll / employees).toLocaleString() );
+		jQuery('#annualPayrollPerEmployee_2002').html( ((naics.payroll_x1000_2002 * 1000.0) / naics.num_employees_2002).toLocaleString() );
+		jQuery('#annualPayrollPerEmployee_2007').html( ((naics.payroll_x1000_2007 * 1000.0) / naics.num_employees_2007).toLocaleString() );
+		jQuery('#annualPayrollPerEmployee_2012').html( ((naics.payroll_x1000_2012 * 1000.0) / naics.num_employees_2012).toLocaleString() );
+	}
+		function getEmployeesPerEstablishment(naics, annualPayroll, employees) {
+		jQuery('#user_employeesPerEstablishment').html( (annualPayroll / employees).toLocaleString() );
+		jQuery('#employeesPerEstablishment_2002').html( ((naics.payroll_x1000_2002 * 1000.0) / naics.num_employees_2002).toLocaleString() );
+		jQuery('#employeesPerEstablishment_2007').html( ((naics.payroll_x1000_2007 * 1000.0) / naics.num_employees_2007).toLocaleString() );
+		jQuery('#employeesPerEstablishment_2012').html( ((naics.payroll_x1000_2012 * 1000.0) / naics.num_employees_2012).toLocaleString() );
+	}
+
+</script>

@@ -1,11 +1,9 @@
-/**
- * Implements hook_theme().
- */
-function compara_tu_negocio_theme() {
-  $theme['compara_tu_negocio_index_theme'] = [
-    'variables' => ['from' => NULL, 'to' => NULL],
-    'template' => 'index',
-  ];
+<?php
 
-  return $theme;
+function compara_tu_negocio_theme($existing, $type, $theme, $path) {
+  return array(
+  	'compara_tu_negocio' => array(
+  	'variables' => array('ctn_data' => $results),
+  	),
+  );
 }
