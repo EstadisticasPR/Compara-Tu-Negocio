@@ -571,7 +571,7 @@ id,naics_code,code_description,num_establishments_2017,value_x1000_2017,payroll_
 570,6223,Specialty (except psychiatric and substance abuse) hospitals,51,83874,14671,701,33,223455,62144,2605,16,182483,52719,2142,10,79515,20458,1212
 571,623,Nursing and residential care facilities,51,83874,14671,701,380,99592,63578,4762,409,251253,72535,5365,422,272819,69142,5164
 572,6231,Nursing care facilities,51,83874,14671,701,50,20456,13289,908,39,35174,15030,946,40,81776,28945,1864
-573,6232,"Residential mental retardation,51,83874,14671,701, mental health and substance abuse facilities",63,26017,13821,789,86,111572,24949,1485,135,101720,11787,835
+573,6232,"Residential mental retardation, mental health and substance abuse facilities",51,83874,14671,701,63,26017,13821,789,86,111572,24949,1485,135,101720,11787,835
 574,62321,Residential mental retardation facilities,51,83874,14671,701,30,4333,2311,133,39,26846,9863,617,n/d,n/d,n/d,n/d
 575,62322,Residential mental health and substance abuse facilities,51,83874,14671,701,33,21684,11511,657,47,84726,15086,869,n/d,n/d,n/d,n/d
 576,6233,Community care facilities for the elderly,51,83874,14671,701,248,43812,26006,2237,257,74669,19748,2001,210,47987,15331,1609
