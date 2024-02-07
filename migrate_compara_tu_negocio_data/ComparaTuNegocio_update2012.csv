@@ -426,7 +426,7 @@ id,naics_code,code_description,num_establishments_2017,value_x1000_2017,payroll_
 425,52229,Other nondepository credit intermediation,51,83874,14671,701,238,1251295,102684,2543,400,1163736,157327,5184,380,1053822,179634,6420
 426,5223,Activities related to credit intermediation,51,83874,14671,701,92,56269,24392,880,96,129562,35284,1123,126,202528,31391,1395
 427,52231,Mortgage and nonmortgage loan brokers,51,83874,14671,701,7,11841,3723,105,18,35807,11622,363,32,n/d,n/d,n/d
-428,52232,"Financial transactions processing,51,83874,14671,701, reserve, and clearinghouse activities",33,10377,12865,428,39,66640,20015,580,13,n/d,n/d,n/d
+428,52232,"Financial transactions processing, reserve, and clearinghouse activities",51,83874,14671,701,33,10377,12865,428,39,66640,20015,580,13,n/d,n/d,n/d
 429,52239,Other activities related to credit intermediation,51,83874,14671,701,52,34052,7805,347,39,27115,3647,181,81,74085,10401,671
 430,523,"Securities, commodity contracts, and other financial investments and related activities",51,83874,14671,701,139,326759,121020,1715,181,598108,106304,1652,176,n/d,n/d,n/d
 431,5231,Securities and commodity contracts intermediation and brokerage,51,83874,14671,701,34,152919,92057,962,39,327719,74719,719,129,n/d,n/d,n/d
