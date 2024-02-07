@@ -27,6 +27,11 @@ class ComparaTuNegocioController extends ControllerBase {
     $query->addField('ctn','value_x1000_2012');
     $query->addField('ctn','payroll_x1000_2012');
     $query->addField('ctn','num_employees_2012');
+
+    $query->addField('ctn','num_establishments_2017');
+    $query->addField('ctn','value_x1000_2017');
+    $query->addField('ctn','payroll_x1000_2017');
+    $query->addField('ctn','num_employees_2017');
     $results = $query->execute()->fetchAll();
     //kint($results[1]);
     //kint($results);
