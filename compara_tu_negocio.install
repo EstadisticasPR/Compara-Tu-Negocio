@@ -76,7 +76,28 @@ function compara_tu_negocio_schema() {
         'length' => 10,
         'not null' => FALSE,
       ),
-    ),
+      // Economic Census 2017 Columns
+        'num_establishments_2017'=>array(
+          'type' => 'varchar',
+          'length' => 10,
+          'not null' => FALSE,
+        ),
+        'value_x1000_2017'=>array(
+          'type' => 'varchar',
+          'length' => 10,
+          'not null' => FALSE,
+        ),
+        'payroll_x1000_2017'=>array(
+          'type' => 'varchar',
+          'length' => 10,
+          'not null' => FALSE,
+        ),
+        'num_employees_2017'=>array(
+          'type' => 'varchar',
+          'length' => 10,
+          'not null' => FALSE,
+        ),
+      ),
     'primary key' => array('naics_code'),
   );
 
