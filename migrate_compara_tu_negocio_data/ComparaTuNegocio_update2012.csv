@@ -112,7 +112,7 @@ id,naics_code,code_description,num_establishments_2017,value_x1000_2017,payroll_
 111,325,Chemical manufacturing,51,83874,14671,701,109,52141139,1123672,17466,151,52063586,1568221,30841,154,39808729,1228680,28937
 112,3251,Basic chemical manufacturing,51,83874,14671,701,9,58583,8018,179,18,147333,14970,481,14,49419,6733,290
 113,32519,Other basic organic chemical manufacturing,51,83874,14671,701,1,n/d,n/d,n/d,3,3166,624,30,1,n/d,n/d,n/d
-114,3252,"Resin, synthetic rubber, and artificial synthetic fibers and filaments manufacturing,51,83874,14671,701",2,n/d,n/d,n/d,5,229553,39792,1503,4,n/d,n/d,n/d
+114,3252,"Resin, synthetic rubber, and artificial synthetic fibers and filaments manufacturing",51,83874,14671,701,2,n/d,n/d,n/d,5,229553,39792,1503,4,n/d,n/d,n/d
 115,3254,Pharmaceutical and medicine manufacturing,51,83874,14671,701,46,50892509,1022042,14097,65,50404540,1418103,25550,74,38446602,1109166,25036
 116,3255,"Paint, coating, and adhesive manufacturing",51,83874,14671,701,20,293238,41020,1510,24,246842,32099,1481,20,214620,33000,1112
 117,32551,Paint and coating manufacturing,51,83874,14671,701,11,212708,27091,1123,15,154748,17955,1053,13,135113,18427,652
