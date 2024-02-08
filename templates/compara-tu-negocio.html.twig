@@ -193,6 +193,7 @@
 		jQuery('#ratioSalesPerEstablishment_2002').html( ( (naics.value_x1000_2002 * 1000.0) / naics.num_establishments_2002).toLocaleString() );
 		jQuery('#ratioSalesPerEstablishment_2007').html( ( (naics.value_x1000_2007 * 1000.0) / naics.num_establishments_2007).toLocaleString() );
 		jQuery('#ratioSalesPerEstablishment_2012').html( ( (naics.value_x1000_2012 * 1000.0) / naics.num_establishments_2012).toLocaleString() );
+		jQuery('#ratioSalesPerEstablishment_2017').html( ( (naics.value_x1000_2017 * 1000.0) / naics.num_establishments_2017).toLocaleString() );
 	}
 
 	function getSalesPerEmployee(naics, annualRevenue, employees) {
@@ -200,6 +201,7 @@
 		jQuery('#salesPerEmployee_2002').html( ((naics.value_x1000_2002 * 1000.0) / naics.num_employees_2002).toLocaleString() );
 		jQuery('#salesPerEmployee_2007').html( ((naics.value_x1000_2007 * 1000.0) / naics.num_employees_2007).toLocaleString() );
 		jQuery('#salesPerEmployee_2012').html( ((naics.value_x1000_2012 * 1000.0) / naics.num_employees_2012).toLocaleString() );
+		jQuery('#salesPerEmployee_2017').html( ((naics.value_x1000_2017 * 1000.0) / naics.num_employees_2017).toLocaleString() );
 	}
 
 	function getSalesPerDollarOfPayroll(naics, annualRevenue, annualPayroll) {
@@ -207,6 +209,7 @@
 		jQuery('#salesPerDollarOfPayroll_2002').html( ((naics.value_x1000_2002 * 1000.0) / naics.payroll_x1000_2002).toLocaleString() );
 		jQuery('#salesPerDollarOfPayroll_2007').html( ((naics.value_x1000_2007 * 1000.0) / naics.payroll_x1000_2007).toLocaleString() );
 		jQuery('#salesPerDollarOfPayroll_2012').html( ((naics.value_x1000_2012 * 1000.0) / naics.payroll_x1000_2012).toLocaleString() );
+		jQuery('#salesPerDollarOfPayroll_2017').html( ((naics.value_x1000_2017 * 1000.0) / naics.payroll_x1000_2017).toLocaleString() );
 	}
 
 	function getAnnualPayrollPerEmployee(naics, annualPayroll, employees) {
@@ -214,12 +217,14 @@
 		jQuery('#annualPayrollPerEmployee_2002').html( ((naics.payroll_x1000_2002 * 1000.0) / naics.num_employees_2002).toLocaleString() );
 		jQuery('#annualPayrollPerEmployee_2007').html( ((naics.payroll_x1000_2007 * 1000.0) / naics.num_employees_2007).toLocaleString() );
 		jQuery('#annualPayrollPerEmployee_2012').html( ((naics.payroll_x1000_2012 * 1000.0) / naics.num_employees_2012).toLocaleString() );
+		jQuery('#annualPayrollPerEmployee_2017').html( ((naics.payroll_x1000_2017 * 1000.0) / naics.num_employees_2017).toLocaleString() );
 	}
 		function getEmployeesPerEstablishment(naics, annualPayroll, employees) {
 		jQuery('#user_employeesPerEstablishment').html( (annualPayroll / employees).toLocaleString() );
 		jQuery('#employeesPerEstablishment_2002').html( ((naics.payroll_x1000_2002 * 1000.0) / naics.num_employees_2002).toLocaleString() );
 		jQuery('#employeesPerEstablishment_2007').html( ((naics.payroll_x1000_2007 * 1000.0) / naics.num_employees_2007).toLocaleString() );
 		jQuery('#employeesPerEstablishment_2012').html( ((naics.payroll_x1000_2012 * 1000.0) / naics.num_employees_2012).toLocaleString() );
+		jQuery('#employeesPerEstablishment_2017').html( ((naics.payroll_x1000_2017 * 1000.0) / naics.num_employees_2017).toLocaleString() );
 	}
 
 </script>
