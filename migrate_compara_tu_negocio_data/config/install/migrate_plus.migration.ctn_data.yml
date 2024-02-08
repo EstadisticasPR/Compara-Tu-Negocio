@@ -38,6 +38,10 @@ process:
   payroll_x1000_2012: payroll_x1000_2012
   num_employees_2012: num_employees_2012
 
+  num_establishments_2017: num_establishments_2017
+  value_x1000_2017: value_x1000_2017
+  payroll_x1000_2017: payroll_x1000_2017
+  num_employees_2017: num_employees_2017
 
 migration_dependencies: {}
 
