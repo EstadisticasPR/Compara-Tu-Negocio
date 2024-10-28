@@ -7,7 +7,7 @@ label: Compara Tu Negocio Data
 
 source: 
   plugin: csv
-  path: '/var/www/drupal/modules/compara_tu_negocio/migrate_compara_tu_negocio_data/ComparaTuNegocio_update2012.csv'
+  path: '/var/www/drupal/modules/compara_tu_negocio/migrate_compara_tu_negocio_data/ComparaTuNegocio_update2017.csv'
   header_row_count: 1
   keys:
    - id
